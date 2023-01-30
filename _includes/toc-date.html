@@ -29,16 +29,23 @@
                     {% endif %}
 
                     {% for post in reversed_posts %}
-                        {% if page.url == post.url %}
-                        <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
-                        {% else %}
-                        <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}{{post.url}}">
+                        {% if collection.label == "pages" %}
+                            {% if page.url == post.url %}
+                            <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
+                            {% else %}
+                            <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}{{post.url}}">
+                            {% endif %}
+                                {% if post.title == "notion" %}
+                                    <a href="https://versed-windflower-39d.notion.site/Java-967f7a0e67f74de483247a493ebcc0ee">
+                                        {{ post.title | escape }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{site.baseurl}}{{post.url}}">
+                                        {{ post.title | escape }}
+                                    </a>
+                                {% endif %}
+                            </li>
                         {% endif %}
-                            <a href="{{site.baseurl}}{{post.url}}">
-                                {{ post.title | escape }}
-                            </a>
-                           
-                        </li>
                     {% endfor %}
 
                 {% endif %}

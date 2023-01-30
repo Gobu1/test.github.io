@@ -15,6 +15,8 @@ rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
 remote_theme: sighingnow/jekyll-gitbook
+# collection base dir
+collections_dir: document
 
 toc:
   enabled: true
@@ -48,7 +50,10 @@ exclude:
 collections:
   pages:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:name
+  project:
+    output: true
+    permalink: /:collection/:name
 
 page_width: 800px
 
